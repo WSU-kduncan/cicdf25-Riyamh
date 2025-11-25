@@ -1,0 +1,68 @@
+/* General Styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #FFF0F5; /* lavender blush */
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header */
+header {
+    background-color: #FFD1DC; /* soft pink */
+    padding: 20px;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2em;
+}
+
+/* Navigation */
+nav a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: #6A5ACD; /* soft purple */
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: #FF69B4; /* hot pink on hover */
+}
+
+/* Main Content */
+main {
+    padding: 20px;
+    text-align: center;
+}
+
+section h2 {
+    color: #FFB6C1; /* light pink */
+}
+
+section p {
+    font-size: 1.1em;
+}
+
+/* Gallery */
+.gallery {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.gallery img {
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+/* Footer */
+footer {
+    background-color: #FFE4E1; /* misty rose */
+    padding: 15px;
+    text-align: center;
+    margin-top: 20px;
+}
+
