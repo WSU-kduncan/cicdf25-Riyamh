@@ -1,6 +1,6 @@
 name: Build and push image to Docker repo
 on:
-  # Triggers on push to main branch
+  # Triggers on push to the main branch
   push:
     branches:
       - 'main'
