@@ -1,9 +1,11 @@
 name: Build and push image to Docker repo
 on:
-  # Triggers on push to the main branch
+  # Triggers on push to the main branch as well as tags
   push:
     branches:
       - 'main'
+    tags:
+      - 'v*'
 # Using Project 3 repo since I already had it created
 env:
   DOCKER_HUB_REPO: hameed-project3
