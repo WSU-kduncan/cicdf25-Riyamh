@@ -29,14 +29,19 @@ jobs:
         id: meta
         uses: docker/metadata-action@v5
         with: 
-          images: ${{ secrets.DOCKER_USERNAME }}/${{ env.DOCKER_HUB_REPO }} 
+          images: ${{ secrets.DOCKER_USERNAME }}/hameed-project3 
+          tags: |
+            type=ref,event=branch
+            type=ref,event=pr
+            type=semver,pattern={{version}}
+            type=semver,pattern={{major}}.{{minor}}
      
       # Build and push
       - name: Build and push
         uses: docker/build-push-action@v6
         with:
+          context: .
           push: true
-          tags: |
-            ${{ secrets.DOCKER_USERNAME }}/${{ env.DOCKER_HUB_REPO }}:Project4
-            ${{ secrets.DOCKER_USERNAME }}/${{ env.DOCKER_HUB_REPO }}:latest
-
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+          
