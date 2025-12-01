@@ -5,7 +5,7 @@ The goal of this project is to understand how continuous integration and continu
 
 In this project, GitHub, GitHub Actions, Docker, and Dockerfile. GitHub holds everything needed to trigger GitHub Actions. GitHub Actions is what gets triggered and then creates an image. Dockerfile has the instructions that tell Docker how to build the image. Then, Docker creates and stores the image. 
 
-Diagram of project
+![Diagram](Images/CI_CD_Diagram.png)
 
 ---
 
@@ -19,6 +19,7 @@ Issues encountered:
 
 Outputs below:
 index.html:
+```
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -44,8 +45,9 @@ index.html:
     </main>
 </body>
 </html>
-
+```
 stuff.html:
+```
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -75,8 +77,9 @@ stuff.html:
     </main>
 </body>
 </html>
-
+```
 style.css:
+```
 /* General Styles */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -144,12 +147,20 @@ footer {
     text-align: center;
     margin-top: 20px;
 }
+```
 These HTML and CSS files were **NOT** written by me but by ChatGPT, as stated. 
 - https://github.com/marketplace/actions/checkout -> to better understand checkout actions and which version to use
 - https://github.com/docker/build-push-action -> to understand how to build and push images with Buildx
 - https://github.com/docker/login-action -> for login to DockerHub with GitHub Actions
 - https://semver.org/ -> to actually understand semantic versioning because I was confused for a while
-- 
+- https://docs.github.com/en/actions/reference/workflows-and-actions/workflow-syntax -> workflow syntax help!
+- https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows -> to understand what triggers workflows
+- https://github.com/docker/metadata-action -> also really confused but helped with understanding metadata section
+- These videos helped me understand the CI/CD pipeline and create my diagram:
+  https://youtu.be/KnSBNd3b0qI?si=Icz3_TW65r0kU-Uu
+  https://youtu.be/M4CXOocovZ4?si=VMyCVM7Za4F89voV
+  https://youtu.be/scEDHsr3APg?si=6f09brOx8wFuYVx7
+  https://youtu.be/jZYrxk2WMbY?si=6B8COc6QuH4R3M0t
 
 ## Part 1
 My content can be found in cicdf25-Riyamh/Project-4/[web-content](https://github.com/WSU-kduncan/cicdf25-Riyamh/tree/main/Project-4/web-content). The web-content folder holds all of the files that make up the website, like the HTML and CSS files. Docker needs this folder so that it can display the page. 
