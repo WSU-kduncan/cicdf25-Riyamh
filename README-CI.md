@@ -3,7 +3,7 @@
 ### Project Overview
 The goal of this project is to understand how continuous integration and continuous delivery (CI/CD) works. By making changes to the files, GitHub Actions is triggered and a Docker image is made and pushed to the DockerHub. 
 
-In this project, GitHub, GitHub Actions, Docker, and Dockerfile. GitHub holds everything needed to trigger GitHub Actions. GitHub Actions is what gets triggered and then creates an image. Dockerfile has the instructions that tell Docker how to build the image. Then, Docker creates and stores the image. 
+In this project, GitHub, GitHub Actions, Docker, and Dockerfile were used. GitHub holds everything needed to trigger GitHub Actions. GitHub Actions is what gets triggered and then creates an image. Dockerfile has the instructions that tell Docker how to build the image. Then, Docker creates and stores the image. 
 
 ![Diagram](Images/CI_CD_Diagram.png)
 
