@@ -189,7 +189,7 @@ For this project, the Secrets I set are DOCKER_USERNAME, which is my Docker user
 
 ---
 
-What triggers the workflow is when there's a commit to the main branch 
+What triggers the workflow is when there's a commit to the main branch. 
 First, the workflow checks out the repo, then sets up Buildx, logs into DockerHub, and then builds and pushes the image with the tag: Project4 (or latest). 
 
 When used in a different repository, make sure to change these: 
