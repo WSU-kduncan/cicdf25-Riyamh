@@ -14,7 +14,8 @@ Issues encountered:
 ![Failed](Images/failure.png)
 ![Failed2](Images/failed.png)
 
-3. Then, first I did git tag v1.1.1 but nothing happened when I checked my Actions tab in GitHub because I didn't have it set up in the YML file to include tags when pushing. Once I included my tag in the YML, and went back and used git tag v1.1.2, it worked and showed a success in the Actions tab. 
+2. Then, first I did git tag v1.1.1 but nothing happened when I checked my Actions tab in GitHub because I didn't have it set up in the YML file to include tags when pushing. Once I included my tag in the YML, and went back and used git tag v1.1.2, it worked and showed a success in the Actions tab.
+
 
 ### Resources 
 - Lucidchart for my diagram
@@ -210,13 +211,13 @@ Then run, ```docker run -p 8080:8080 rhameed/hameed-project3:Project4```, and go
 DockerHub repo found in:  (https://hub.docker.com/repository/docker/rhameed/hameed-project3/general)
 
 ## Part 3
-To see that tags you have in your Git repository, use the command ```git tag```
-To make a new tag, use the command ```git tag v1.3.0```
-To push a tag to GitHub, use the command ```git tag origin v1.3.0```
+  To see the tags you have in your Git repository, use the command ```git tag```  
+  To make a new tag, use the command ```git tag v1.3.0```  
+  To push a tag to GitHub, use the command ```git tag origin v1.3.0```  
 
 ---
 
-What triggers the workflow is when a Git tag is pushed (Honorable Mention: Semantic Versioning-> v1.1.2, v1.2.0, v1.3.0, etc)
+What triggers the workflow is when a Git tag is pushed (Honorable Mention: Semantic Versioning-> v1.1.2, v1.2.0, v1.3.0, etc).  
 First, the workflow checks out the repo, then sets up Buildx, logs into DockerHub, reads the metadata, then builds and pushes the image with the tags.
 
 When used in a different repository, make sure to change these: 
