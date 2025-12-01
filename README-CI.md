@@ -159,7 +159,7 @@ These HTML and CSS files were **NOT** written by me but by ChatGPT, as stated.
 - https://docs.github.com/en/actions/reference/workflows-and-actions/workflow-syntax -> workflow syntax help!
 - https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows -> to understand what triggers workflows
 - https://github.com/docker/metadata-action -> also really confused but helped with understanding metadata section
-- These videos helped me understand the CI/CD pipeline and create my diagram:
+- These videos helped me understand the CI/CD pipeline and create my diagram: |
   https://youtu.be/KnSBNd3b0qI?si=Icz3_TW65r0kU-Uu
   https://youtu.be/M4CXOocovZ4?si=VMyCVM7Za4F89voV
   https://youtu.be/scEDHsr3APg?si=6f09brOx8wFuYVx7
