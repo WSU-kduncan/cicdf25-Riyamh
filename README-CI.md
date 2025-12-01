@@ -159,11 +159,11 @@ These HTML and CSS files were **NOT** written by me but by ChatGPT, as stated.
 - https://docs.github.com/en/actions/reference/workflows-and-actions/workflow-syntax -> workflow syntax help!
 - https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows -> to understand what triggers workflows
 - https://github.com/docker/metadata-action -> also really confused but helped with understanding metadata section
-- These videos helped me understand the CI/CD pipeline and create my diagram: |
-  https://youtu.be/KnSBNd3b0qI?si=Icz3_TW65r0kU-Uu
-  https://youtu.be/M4CXOocovZ4?si=VMyCVM7Za4F89voV
-  https://youtu.be/scEDHsr3APg?si=6f09brOx8wFuYVx7
-  https://youtu.be/jZYrxk2WMbY?si=6B8COc6QuH4R3M0t
+- These videos helped me understand the CI/CD pipeline and create my diagram:  
+    https://youtu.be/KnSBNd3b0qI?si=Icz3_TW65r0kU-Uu  
+    https://youtu.be/M4CXOocovZ4?si=VMyCVM7Za4F89voV  
+    https://youtu.be/scEDHsr3APg?si=6f09brOx8wFuYVx7  
+    https://youtu.be/jZYrxk2WMbY?si=6B8COc6QuH4R3M0t  
 
 ## Part 1
 My content can be found in cicdf25-Riyamh/Project-4/[web-content](https://github.com/WSU-kduncan/cicdf25-Riyamh/tree/main/Project-4/web-content). The web-content folder holds all of the files that make up the website, like the HTML and CSS files. Docker needs this folder so that it can display the page. 
