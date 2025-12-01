@@ -10,8 +10,11 @@ In this project, GitHub, GitHub Actions, Docker, and Dockerfile. GitHub holds ev
 ---
 
 Issues encountered:
-1. In GitHub Actions, when pushing I saw a message that said "Error:failed to build: failed to solve: failed to read dockerfile..." because my Dockerfile was in the wrong folder. 
-2. Then, first I did git tag v1.1.1 but nothing happened when I checked my Actions tab in GitHub because I didn't have it set up in the YML file to include tags when pushing. Once I included my tag in the YML, and went back and used git tag v1.1.2, it worked and showed a success in the Actions tab. 
+1. In GitHub Actions, when pushing I saw this message because my Dockerfile was in the wrong folder:
+![Failed](Images/failure.png)
+![Failed2](Images/failed.png)
+
+3. Then, first I did git tag v1.1.1 but nothing happened when I checked my Actions tab in GitHub because I didn't have it set up in the YML file to include tags when pushing. Once I included my tag in the YML, and went back and used git tag v1.1.2, it worked and showed a success in the Actions tab. 
 
 ### Resources 
 - Lucidchart for my diagram
@@ -173,7 +176,8 @@ When tagging, you have to include your DockerHub username and repo, so that the 
 
 To run the container, you have to run the command
 ```docker run -p 8080:8080 rhameed/hameed-project3:Project4```
-Then go to [localhost:8080](http://localhost:8080) and you see a page that says "It works!" (remember insert screenshot)
+Then go to [localhost:8080](http://localhost:8080) and you see this page:
+![Web page](Images/itworks.png)
 
 ## Part 2 - GitHub Actions and DockerHub
 The PAT can be created in the DockerHub settings and the recommended scope is read and write so that you can pull and push images. 
@@ -181,6 +185,7 @@ The PAT can be created in the DockerHub settings and the recommended scope is re
 To set up repo Secrets, you have to go to your GitHub repo and then click settings-> Secrets and variables -> Actions. Then click to create a new repo Secret and then set the name and Secret.  
  
 For this project, the Secrets I set are DOCKER_USERNAME, which is my Docker user, and DOCKER_TOKEN, which is the DockerHub PAT.  
+![Secrets](Images/Secrets.png)
 
 ---
 
