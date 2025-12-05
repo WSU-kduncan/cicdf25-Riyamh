@@ -1,0 +1,95 @@
+# Used my CF template from project 3 and edited based on project 5 requirements
+AWSTemplateFormatVersion: 2010-09-09
+Description:
+
+Parameters:
+  KeyName:
+    Description: Name of an existing EC2 KeyPair to enable SSH access to the instance
+    Type: 'AWS::EC2::KeyPair::KeyName'
+    ConstraintDescription: must be the name of an existing EC2 KeyPair.
+
+Mappings:
+  AWSRegionAMI: # AMI for Ubuntu server in each supported region
+    us-east-1: # N. Virginia
+      HVM64: ami-09e67e426f25ce0d7
+
+Resources:
+  VPC:
+    Type: 'AWS::EC2::VPC'
+    Properties:
+      CidrBlock: 
+      Tags:
+        - Key: Application
+          Value: !Ref 'AWS::StackId'
+        - Key: Name
+          Value: Project5-VPC
+
+  PublicSubnet:
+    Type: 'AWS::EC2::Subnet'
+    Properties:
+      VpcId: !Ref VPC
+      CidrBlock: 
+      Tags:
+        - Key: Application
+          Value: !Ref 'AWS::StackId'
+        - Key: Name
+          Value: Project5-public-subnet
+
+  InternetGateway:
+    Type: 'AWS::EC2::InternetGateway'
+
+  AttachGateway:
+    Type: 'AWS::EC2::VPCGatewayAttachment'
+    Properties:
+      VpcId: !Ref VPC
+      InternetGatewayId: !Ref InternetGateway
+
+  PublicRouteTable:
+    Type: 'AWS::EC2::RouteTable'
+    Properties:
+      VpcId: !Ref VPC
+
+  PublicRouteToIG:
+    Type: 'AWS::EC2::Route'
+    DependsOn: AttachGateway
+    Properties:
+      RouteTableId: !Ref PublicRouteTable
+      DestinationCidrBlock: 0.0.0.0/0
+      GatewayId: !Ref InternetGateway
+
+  PublicSubnetRouteTableAssociation:
+    Type: 'AWS::EC2::SubnetRouteTableAssociation'
+    Properties:
+      SubnetId: !Ref PublicSubnet
+      RouteTableId: !Ref PublicRouteTable
+
+  SecurityGroup:
+    Type: 'AWS::EC2::SecurityGroup'
+    Properties:
+      VpcId: !Ref VPC
+      GroupDescription: Enable SSH access and HTTP
+      SecurityGroupIngress:
+        - IpProtocol: tcp
+          FromPort: 22
+          ToPort: 22
+          CidrIp: 0.0.0.0/0
+        - IpProtocol: tcp
+          FromPort: 80
+          ToPort: 80
+          CidrIp: 0.0.0.0/0
+      Tags:
+        - Key: Name
+          Value: Project5-sg
+
+  WebServInstance:
+    Type: 'AWS::EC2::Instance'
+    Properties:
+      ImageId: !FindInMap [AWSRegionAMI, !Ref "AWS::Region", HVM64]
+      InstanceType: t2.medium
+      KeyName: !Ref KeyName
+      Tags:
+        - Key: Name
+          Value: Project5-server
+      UserData:
+        Fn::Base64: !Sub |
+          #!/bin/bash
