@@ -90,7 +90,7 @@ Resources:
       InstanceType: t2.medium
       KeyName: !Ref KeyName
       SecurityGroupIds:
-        - Ref: SecurityGroup
+        - !Ref: SecurityGroup
       BlockDeviceMappings:
         - DeviceName: /dev/sda1
           Ebs:
