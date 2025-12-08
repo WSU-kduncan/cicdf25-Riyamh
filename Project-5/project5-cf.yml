@@ -1,13 +1,12 @@
 # Used my CF template from project 3 and edited based on project 5 requirements
 AWSTemplateFormatVersion: 2010-09-09
-Description:
+Description: EC2 Instance with Docker
 
 Parameters:
   KeyName:
     Description: Name of an existing EC2 KeyPair to enable SSH access to the instance
     Type: 'AWS::EC2::KeyPair::KeyName'
-    ConstraintDescription: must be the name of an existing EC2 KeyPair.
-
+    
 Mappings:
   AWSRegionAMI: # AMI for Ubuntu server in each supported region
     us-east-1: # N. Virginia
