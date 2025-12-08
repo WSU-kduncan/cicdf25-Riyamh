@@ -89,6 +89,7 @@ Resources:
       ImageId: !FindInMap [AWSRegionAMI, !Ref "AWS::Region", HVM64]
       InstanceType: t2.medium
       KeyName: !Ref KeyName
+      SubnetId: !Ref PublicSubnet
       SecurityGroupIds:
         - !Ref SecurityGroup
       BlockDeviceMappings:
@@ -104,5 +105,4 @@ Resources:
           apt-get update -y && \
           apt-get install -y docker.io && \
           systemctl enable docker && \
-          systemctl start docker && \
-          
+          systemctl start docker 
