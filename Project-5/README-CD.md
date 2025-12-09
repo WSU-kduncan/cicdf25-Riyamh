@@ -39,7 +39,7 @@ docker run -d -p 80:80 --name project5 --restart always rhameed/hameed-project3:
 ```
 - The -it flag is for interacting with the container directly and the -d flag is for running the container in the background
 - To verify that the container is successful, I went to http://98.94.31.189/ and I saw this page:
-[Successful page](itworks!.png)
+[Successful page](webrules-work.png)
 
 - The bash script stops and removes the previously running container, then pulls the latest image, and runs the new container detached.
 - How to test / verify that the script successfully performs its taskings
