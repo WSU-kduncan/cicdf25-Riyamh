@@ -1,6 +1,5 @@
 # Project 5 - Continuous Deployment
 
-Please work
 
 ## Part 4:
 Summarize the project contents in the repository
