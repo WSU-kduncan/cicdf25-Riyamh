@@ -2,37 +2,6 @@
   {
     "id": "project5-hook",
     "execute-command": "/home/ubuntu/cicdf25-Riyamh/Project-5/deployment/script.sh",
-    "command-working-directory": "/home/ubuntu/cicdf25-Riyamh/Project-5/deployment",
-    "response-message": "Script successful!",
-    "trigger-rule":
-    {
-      "and":
-      [
-        {
-          "match":
-          {
-            "type": "payload-hmac-sha256",
-            "secret": "webhooksecret",
-	    	"parameter":
-            {
-              "source": "header",
-              "name": "X-Hub-Signature-256"
-            }
-          }
-        },
-        {
-          "match":
-          {
-            "type": "value",
-            "value": "refs/heads/main",
-            "parameter":
-            {
-              "source": "payload",
-              "name": "ref"
-            }
-          }
-        }
-      ]
-    }
+    "command-working-directory": "/home/ubuntu/cicdf25-Riyamh/Project-5/deployment"
   }
 ]
