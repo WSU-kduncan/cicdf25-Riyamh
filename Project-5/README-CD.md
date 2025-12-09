@@ -61,8 +61,8 @@ webhook -version
 Mine printed out: webhook version 2.6.9
 - Summary of the webhook definition file
 - How to verify definition file was loaded by webhook
-How to verify webhook is receiving payloads that trigger it
-how to monitor logs from running webhook
+- How to verify webhook is receiving payloads that trigger it
+- how to monitor logs from running webhook
 what to look for in docker process views
 LINK to definition file in repository
 Configure a webhook Service on EC2 Instance
