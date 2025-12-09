@@ -1,5 +1,11 @@
 # Project 5 - Continuous Deployment
 
+## Part 4:
+Summarize the project contents in the repository
+Link to README-CI.md and README-CD.md with a brief summary about what users will find in each document.
+
+---
+
 ## Part 1
 - AMI: Ubuntu with HVM64 = ami-09e67e426f25ce0d7
 - The instance is t2.medium, that has 2 CPU cores and 4 GB RAM.
@@ -44,12 +50,17 @@ This means that port 80 was already being used on the instance. So, I had to run
 ---
 
 ## Part 2:
-
-Configuring a webhook Listener on EC2 Instance
-How to install adnanh's webhook to the EC2 instance
-How to verify successful installation
-Summary of the webhook definition file
-How to verify definition file was loaded by webhook
+- To install adnanh's webhook, use the command;
+```
+sudo apt-get install webhook
+```
+- To verify successful installation:
+```
+webhook -version
+```
+Mine printed out: webhook version 2.6.9
+- Summary of the webhook definition file
+- How to verify definition file was loaded by webhook
 How to verify webhook is receiving payloads that trigger it
 how to monitor logs from running webhook
 what to look for in docker process views
@@ -60,7 +71,9 @@ How to enable and start the webhook service
 How to verify webhook service is capturing payloads and triggering bash script
 LINK to service file in repository
 
-Part 3:
+---
+
+## Part 3:
 Configuring a Payload Sender
 Justification for selecting GitHub or DockerHub as the payload sender
 How to enable your selection to send payloads to the EC2 webhook listener
@@ -68,6 +81,3 @@ Explain what triggers will send a payload to the EC2 webhook listener
 How to verify a successful payload delivery
 How to validate that your webhook only triggers when requests are coming from appropriate sources (GitHub or DockerHub)
 
-Part 4:
-Summarize the project contents in the repository
-Link to README-CI.md and README-CD.md with a brief summary about what users will find in each document.
