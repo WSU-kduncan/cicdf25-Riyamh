@@ -16,7 +16,7 @@
 	    	"parameter":
             {
               "source": "header",
-              "name": "X-Hub-Signature"
+              "name": "X-Hub-Signature-256"
             }
           }
         },
