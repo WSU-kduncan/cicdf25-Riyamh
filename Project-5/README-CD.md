@@ -7,6 +7,7 @@ Our EC2 instance, GitHub, adnanh/webhook, bash script, and systemd were used. Gi
 
 ![Diagram](../Images/CD-Diagram.png)
 
+*Some images have different IPs pictured since they were taken at different times and I had a different IP everytime I SSH-ed*
 ---
 
 ## Part 1
@@ -103,7 +104,7 @@ Then pushed a commit to GitHub to make sure that the script is running.
 
 ## Part 3:
 - I chose GitHub as the payload sender, since I thought it would easier and more convenient since my repo is set up here and it's literally where all of my files are located. (I also don't like DockerHub as much and find it slightly confusing)
-- To enable GitHub to send payloads to the EC2 webhook listener, I went into GitHub and created a webhook with this url http://44.204.42.255:9000/hooks/project5-hook (Everytime I logged out of and ended my instance I had to change the IP), set the contet type to application/json, used the same exact secret that's inside of hook.json, enabled SSL verification, triggered just the push events, and added the webhook.
+- To enable GitHub to send payloads to the EC2 webhook listener, I went into GitHub and created a webhook with this url http://44.204.42.255:9000/hooks/project5-hook (Everytime I logged out of and ended my instance I had to change the IP), set the content type to application/json, used the same exact secret that's inside of hook.json, enabled SSL verification, triggered just the push events, and added the webhook.
 - The trigger that will send a payload to the EC2 webhook listener is when commits are pushed to GitHub. 
 - To verify a successful payload delivery, I ran this command `webhook -hooks /home/ubuntu/cicdf25-Riyamh/Project-5/deployment/hook.json -verbose`, then pushed a commit to GitHub and, on my instance, I could see that it says the hook triggered successfully and the .sh file ran. 
 - To validate that the webhook only triggers when requests are coming from GitHub, the secrets on GitHub and the .json file **HAVE** to match each other or else the hook will fail. Trigger rules are really strict and if the smallest thing isn't the same, it'll output that hook rules aren't satisfied. 
@@ -114,7 +115,7 @@ Then pushed a commit to GitHub to make sure that the script is running.
 May not be in order!
 - LucidChart for my diagram
 - Googled so many definitions I couldn't keep track
--(https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ec2-instance.html) and (https://octopus.com/blog/aws-cloudformation-ec2-examples): for help with YML file
+- (https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-ec2-instance.html) and (https://octopus.com/blog/aws-cloudformation-ec2-examples): for help with YML file
 - (https://docs.docker.com/engine/containers/start-containers-automatically/): for docker command help
 - (https://willbrowning.me/setting-up-automatic-deployment-and-builds-using-webhooks/): helped me **a lot** with understanding webhooks and how to build webhooks with GitHub
 - (https://github.com/adnanh/webhook/issues/524): scrolled through this thread to see if anyone had a solution for "hook rules not satisfied" only to find that everyone was just as stuck as I was.
