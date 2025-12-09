@@ -1,0 +1,12 @@
+[Unit]
+Description=Webhook Service
+After=network.target
+
+[Service]
+Type=simple
+Restart=always
+User=ubuntu
+ExecStart=/usr/bin/webhook -hooks /home/ubuntu/cicdf25-Riyamh/Project-5/deployment/hook.json -verbose
+
+[Install]
+WantedBy=multi-user.target
