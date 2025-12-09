@@ -1,7 +1,6 @@
 # Project 5 - Continuous Deployment
 
 ## Part 1
----
 - AMI: Ubuntu with HVM64 = ami-09e67e426f25ce0d7
 - The instance is t2.medium, that has 2 CPU cores and 4 GB RAM.
 - The recommended volume is 30 GB of storage.
@@ -45,7 +44,7 @@ This means that port 80 was already being used on the instance. So, I had to run
 ---
 
 ## Part 2:
----
+
 Configuring a webhook Listener on EC2 Instance
 How to install adnanh's webhook to the EC2 instance
 How to verify successful installation
