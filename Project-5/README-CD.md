@@ -74,7 +74,6 @@ LINK to service file in repository
 ---
 
 ## Part 3:
-Configuring a Payload Sender
 Justification for selecting GitHub or DockerHub as the payload sender
 How to enable your selection to send payloads to the EC2 webhook listener
 Explain what triggers will send a payload to the EC2 webhook listener
