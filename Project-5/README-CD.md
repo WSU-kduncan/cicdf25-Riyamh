@@ -1,26 +1,51 @@
-Part 1:
+# Project 5 - Continuous Deployment
 
-EC2 Instance Details
-AMI information
-Instance type
-Recommended volume size
-Security Group configuration
-Security Group configuration justification / explanation
-Docker Setup on OS on the EC2 instance
-How to install Docker for OS on the EC2 instance
-Additional dependencies based on OS on the EC2 instance
-How to confirm Docker is installed and that OS on the EC2 instance can successfully run containers
-Testing on EC2 Instance
-How to pull container image from DockerHub repository
-How to run container from image
-Note the differences between using the -it flag and the -d flags and which you would recommend once the testing phase is complete
-How to verify that the container is successfully serving the web application
-Scripting Container Application Refresh
-Description of the bash script
-How to test / verify that the script successfully performs its taskings
-LINK to bash script in repository
+## Part 1
+---
+- AMI: Ubuntu with HVM64 = ami-09e67e426f25ce0d7
+- The instance is t2.medium, that has 2 CPU cores and 4 GB RAM.
+- The recommended volume is 30 GB of storage.
+- Security Group: SSH port 22 and HTTP port 80
+- The security group only lets in traffic we need, so SSH is for managing the server and HTTP is for dealing with web requests. All other traffic cannot get in so everything is safe.
 
-Part 2:
+- To install Docker, run these commands:
+```
+sudo apt-get update
+sudo apt-get install
+sudo systemctl enable docker
+sudo systemctl start docker
+```
+- Additional dependencies: I don't think there are any
+- To confirm Docker is installed and it can successfully run containers, run the commands:
+```
+docker --version
+docker run hello-world
+```
+- To pull container image from DockerHub repository, run the command:
+```
+docker pull rhameed/hameed-project3:latest
+```
+- To run container from image:
+```
+docker run -d -p 80:80 --name project5 --restart always rhameed/hameed-project3:latest
+```
+- The -it flag is for interacting with the container directly and the -d flag is for running the container in the background
+- To verify that the container is successful, I went to http://98.94.31.189/ and I saw this page:
+[Successful page](itworks!.png)
+
+- The bash script stops and removes the previously running container, then pulls the latest image, and runs the new container detached.
+- How to test / verify that the script successfully performs its taskings
+- bash script can be found in Project-5/deployment/script.ssh
+- Issue I ran into: when running the script I saw this error (forgot to take a picture):
+  ```
+  Error response from daemon: No such container: project5 Error response from daemon: No such container: project5 latest: Pulling from rhameed/hameed-project3 Digest: sha256:7e93dc10aef11c48f4984691bb5bdbdc7b2c4961f13bb6aca2280ae6788a5c83 Status: Image is up to date for rhameed/hameed-project3:latest docker.io/rhameed/hameed-project3:latest 982e62361be580c53b7cfc30b9988d3ee36c9e3f04b16f504920cf18dc3952da docker: Error response from daemon: driver failed programming external connectivity on endpoint project5 (61bc37cedae330c5c2aa34063bd8e22f474274d587cf35e5fda08da78ea997ee): Bind for 0.0.0.0:80 failed: port is already allocated.
+  ```
+This means that port 80 was already being used on the instance. So, I had to run `docker ps` and then manually stop and remove the running container. I guess my script didn't complete **every** task, since I had to manually stop and remove.
+
+---
+
+## Part 2:
+---
 Configuring a webhook Listener on EC2 Instance
 How to install adnanh's webhook to the EC2 instance
 How to verify successful installation
