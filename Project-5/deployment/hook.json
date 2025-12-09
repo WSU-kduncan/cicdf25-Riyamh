@@ -13,10 +13,10 @@
           {
             "type": "payload-hmac-sha256",
             "secret": "webhooksecret",
-	    "parameter":
+	    	"parameter":
             {
               "source": "header",
-              "name": "X-Hub-Signature-256"
+              "name": "X-Hub-Signature"
             }
           }
         },
