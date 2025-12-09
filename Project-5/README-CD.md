@@ -5,7 +5,7 @@ This project is mostly a *continuation* of Project 4 where we covered continuous
 
 Our EC2 instance, GitHub, adnanh/webhook, bash script, and systemd were used. GitHub holds the repo and therefore everything important, so it triggers webhook when commits are pushed. adnanh/webhook listens on port 9000 for payloads from GitHub. The bash script stops and removes the old container, pulls a new image, and runs a new container. Systemd makes webhook start automatically and keeps it running. 
 
-[Diagram](../Images/CD-Diagram.png)
+![Diagram](../Images/CD-Diagram.png)
 
 ---
 
@@ -39,7 +39,7 @@ docker run -d -p 80:80 --name project5 --restart always rhameed/hameed-project3:
 ```
 - The -it flag is for interacting with the container directly and the -d flag is for running the container in the background
 - To verify that the container is successful, I went to http://98.94.31.189/ and I saw this page:
-[Successful page](../Images/webrules-work.png)
+![Successful page](../Images/webrules-work.png)
 
 - The bash script stops and removes the previously running container, then pulls the latest image, and runs the new container detached.
 - How to test / verify that the script successfully performs its taskings
@@ -74,14 +74,14 @@ Dec 09 07:14:33 ip-10-0-0-88 webhook[1774]: [webhook] 2025/12/09 07:14:33       
 Dec 09 07:14:33 ip-10-0-0-88 webhook[1774]: [webhook] 2025/12/09 07:14:33 serving hooks on http://0.0.0.0:9000/hooks/{id}
 ```
 - To verify webhook is receiving payloads that trigger it, I went into GitHub and created a webhook with this url http://44.204.42.255:9000/hooks/project5-hook (Everytime I logged out of and ended my instance I had to change the IP), set the contet type to application/json, used the same exact secret that's inside of hook.json, enabled SSL verification, triggered just the push events, and added the webhook. Then I went back into my instance and ran `webhook -hooks /home/ubuntu/cicdf25-Riyamh/Project-5/deployment/hook.json -verbose`. I tried pushing commits to GitHub and I finally saw something like:
-[Webhook Success](../Images/webhook-success.png)
-[Git script worked](../Images/gitscript-success.png)
-[Web page works](../Images/webrules-work.png)
+![Webhook Success](../Images/webhook-success.png)
+![Git script worked](../Images/gitscript-success.png)
+![Web page works](../Images/webrules-work.png)
 - The most frustrating issue ever encountered:
   The trigger rules kept failing. The problem was that GitHub was successful in the sense that I could see *successful* logs, but when I was monitoring webhook on my instance it kept saying that the trigger rules weren't satisfied. 
-  [Git rules failed](../Images/rules-failed.png)
-  [Webhook fail](../Images/webhook-fail.png)
-  [Web page rules failed](../Images/webrules-fail.png)
+  ![Git rules failed](../Images/rules-failed.png)
+  ![Webhook fail](../Images/webhook-fail.png)
+  ![Web page rules failed](../Images/webrules-fail.png)
 - To monitor logs from running webhook, in my instance I did it using systemd: `sudo vim /etc/systemd/system/webhook.service`. Then, I went off of the examples on this [site](https://medium.com/@benmorel/creating-a-linux-service-with-systemd-611b5c8b91d6) and this [site](https://fedoramagazine.org/systemd-template-unit-files/) to fill out my file.
 - What to look for in docker process views: check the containers that are running with `docker ps` and it should should the image name and next to it "Up # minutes". This means that the script was successful!
 - Definition file can be found in cicdf25-Riyamh/Project-5/deployment/[hook.json]
