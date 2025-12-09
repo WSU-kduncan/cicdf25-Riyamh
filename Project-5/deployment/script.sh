@@ -2,7 +2,7 @@
 
 # kill the old container process - stopped & then removed
 docker stop project5
-docker remove project5
+docker rm project5
 # pull fresh image
 docker pull rhameed/hameed-project3:latest
 # run new container by name, with restart automagic
