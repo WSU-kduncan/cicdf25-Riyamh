@@ -1,7 +1,6 @@
 # Project 5 - Continuous Deployment
 
-**HAS TO BE AT THE TOP**
-please work!!!
+**REMEMBER THIS HAS TO BE AT THE TOP**
 
 ## Part 4:
 Summarize the project contents in the repository
