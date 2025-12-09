@@ -11,8 +11,13 @@
         {
           "match":
           {
-            "type": "payload-hmac-sha1",
-            "secret": "webhooksecret"
+            "type": "payload-hmac-sha256",
+            "secret": "webhooksecret",
+	    "parameter":
+            {
+              "source": "header",
+              "name": "X-Hub-Signature-256"
+            }
           }
         },
         {
@@ -29,3 +34,5 @@
         }
       ]
     }
+  }
+]
