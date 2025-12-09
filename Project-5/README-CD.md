@@ -1,6 +1,6 @@
 # Project 5 - Continuous Deployment
 
-## Part 4:
+## Part 4
 This project is mostly a *continuation* of Project 4 where we covered continuous integration. The goal of Project 5 is to understand continuous delivery/deployment and be able to connect the two. When changes are pushed to GitHub, EC2 automatically pulls the latest Docker image and restarts the container without having to manually do it yourself. Webhooks make sure that only pushes to the main branch trigger the CD process.
 
 Our EC2 instance, GitHub, adnanh/webhook, bash script, and systemd were used. GitHub holds the repo and therefore everything important, so it triggers webhook when commits are pushed. adnanh/webhook listens on port 9000 for payloads from GitHub. The bash script stops and removes the old container, pulls a new image, and runs a new container. Systemd makes webhook start automatically and keeps it running. 
