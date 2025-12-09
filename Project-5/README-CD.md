@@ -1,6 +1,5 @@
 # Project 5 - Continuous Deployment
 
-work please
 ## Part 4:
 Summarize the project contents in the repository
 Link to README-CI.md and README-CD.md with a brief summary about what users will find in each document.
