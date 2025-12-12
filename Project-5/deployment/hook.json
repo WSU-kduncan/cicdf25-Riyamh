@@ -24,11 +24,11 @@
           "match":
           {
             "type": "value",
-            "value": "refs/heads/main",
+            "value": "success",
             "parameter":
             {
               "source": "payload",
-              "name": "ref"
+              "name": "workflow_job.conclusion"
             }
           }
         }
