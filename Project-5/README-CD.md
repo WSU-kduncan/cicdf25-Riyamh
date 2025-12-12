@@ -1,5 +1,7 @@
 # Project 5 - Continuous Deployment
 
+***Demo Version***
+
 ## Part 4
 This project is mostly a *continuation* of Project 4 where we covered continuous integration. The goal of Project 5 is to understand continuous delivery/deployment and be able to connect the two. When changes are pushed to GitHub, EC2 automatically pulls the latest Docker image and restarts the container without having to manually do it yourself. Webhooks make sure that only pushes to the main branch trigger the CD process.
 
