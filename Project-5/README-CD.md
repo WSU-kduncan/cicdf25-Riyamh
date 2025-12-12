@@ -1,7 +1,5 @@
 # Project 5 - Continuous Deployment
 
-***Demo Version***
-
 ## Part 4
 This project is mostly a *continuation* of Project 4 where we covered continuous integration. The goal of Project 5 is to understand continuous delivery/deployment and be able to connect the two. When changes are pushed to GitHub, EC2 automatically pulls the latest Docker image and restarts the container without having to manually do it yourself. Webhooks make sure that only pushes to the main branch trigger the CD process.
 
@@ -110,6 +108,18 @@ Then pushed a commit to GitHub to make sure that the script is running.
 - The trigger that will send a payload to the EC2 webhook listener is when commits are pushed to GitHub. 
 - To verify a successful payload delivery, I ran this command `webhook -hooks /home/ubuntu/cicdf25-Riyamh/Project-5/deployment/hook.json -verbose`, then pushed a commit to GitHub and, on my instance, I could see that it says the hook triggered successfully and the .sh file ran. 
 - To validate that the webhook only triggers when requests are coming from GitHub, the secrets on GitHub and the .json file **HAVE** to match each other or else the hook will fail. Trigger rules are really strict and if the smallest thing isn't the same, it'll output that hook rules aren't satisfied. 
+
+---
+
+## Demo Update
+First of all, I had webhook settings set to only push events trigger the webhook, so I changed it to where I selected the events I wanted, which was on pushes and workflow jobs. Part of the main problem was also in my hook.json, so I changed it to include the push rule and the workflow_job.conclusion. It kept telling me that hook rules weren't satisfied though, so I removed the push event trigger from webhook settings and only kept workflow jobs. Then, I removed the push rule from my hook.json and only kept the part with workflow_job.conclusion. After making an edit to my file, pushing to GitHub, creating a tag, and pushing that tag, it finally worked.  
+
+![Webhook Script Success](../Images/Webhook-success.png)
+![Actions Success](../Images/Actions-success.png)
+![Docker Tags Shown](../Images/Docker-tagsshown.png)
+![Webhook Running](../Images/Webhook-running.png)
+![Webpage Success](../Images/Webpage-success.png)
+
 
 ---
 
