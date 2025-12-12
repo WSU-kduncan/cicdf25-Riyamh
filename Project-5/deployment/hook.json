@@ -6,16 +6,33 @@
     "response-message": "Script successful!",
     "trigger-rule":
     {
-      "match":
-      {
-        "type": "value",
-        "value": "success",
-        "parameter":
+      "and":
+      [
         {
-          "source": "payload",
-          "name": "workflow_job.conclusion"
+          "match":
+          {
+            "type": "payload-hmac-sha256",
+            "secret": "webhooksecret",
+            "parameter":
+            {
+              "source": "header",
+              "name": "X-Hub-Signature-256"
+            }
+          }
+        },
+        {
+          "match":
+          {
+            "type": "value",
+            "value": "success",
+            "parameter":
+            {
+              "source": "payload",
+              "name": "workflow_job.conclusion"
+            }
+          }
         }
-      }
+      ]
     }
   }
 ]
