@@ -114,7 +114,7 @@ Then pushed a commit to GitHub to make sure that the script is running.
 ## Demo Update
 First of all, I had webhook settings set to only push events trigger the webhook, so I changed it to where I selected the events I wanted, which was on pushes and workflow jobs. Part of the main problem was also in my hook.json, so I changed it to include the push rule and the workflow_job.conclusion. It kept telling me that hook rules weren't satisfied though, so I removed the push event trigger from webhook settings and only kept workflow jobs. Then, I removed the push rule from my hook.json and only kept the part with workflow_job.conclusion. After making an edit to my file, pushing to GitHub, creating a tag, and pushing that tag, it finally worked.  
 
-![Webhook Script Success](../Images/Webhook-success.png)
+![Webhook Script Success](../Images/Webhook-scriptsuccess.png)
 ![Actions Success](../Images/Actions-success.png)
 ![Docker Tags Shown](../Images/Docker-tagsshown.png)
 ![Webhook Running](../Images/Webhook-running.png)
